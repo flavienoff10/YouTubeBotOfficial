@@ -1,0 +1,18 @@
+{
+  "actorSpecification": 1,
+  "name": "shadow-youtube-live-viewer",
+  "title": "SHΔDØW YouTube Live Viewer Bot",
+  "description": "Undetectable live viewer bot - 2025 ready",
+  "version": "9.9",
+  "meta": { "author": "SHΔDØW CORE" },
+  "input": {
+    "type": "object",
+    "properties": {
+      "liveUrl": { "type": "string", "title": "YouTube Live URL" },
+      "proxyList": { "type": "array", "title": "Proxy List (optional)" },
+      "concurrent": { "type": "integer", "default": 20, "title": "Concurrent Viewers" }
+    },
+    "required": ["liveUrl"]
+  },
+  "dockerfile": "FROM python:3.11-slim\nRUN pip install apify pyppeteer asyncio\nCOPY . .\nCMD [\"python\", \"main.py\"]"
+}
